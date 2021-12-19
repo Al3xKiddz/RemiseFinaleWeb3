@@ -1,0 +1,9 @@
+.flex{
+    display: flex;
+    justify-content: center;
+    flex-flow: wrap;
+    margin-bottom: 1%;
+}
+.textarea{
+    width: 100%;
+}:host {background-color: grey;display: block;padding: 10px;}

@@ -1,0 +1,11 @@
+<div class="flex">
+    <form #form="ngForm"  (ngSubmit) = "onClickJeu(form.value)">
+        <mat-form-field appearance="fill">
+            <mat-label>Nom du jeu</mat-label>
+            <input required matInput [(ngModel)]="jeu" name="nom" #nom="ngModel" minlength="2" maxlength="100">
+        </mat-form-field>
+        <button mat-raised-button color="primary" type="submit">Tri par jeu</button>
+    </form>
+<button mat-raised-button color="primary" (click)="toggleBattu()">Battu Oui/Non</button>
+</div>
+<app-liste-fiche [wikis]="wikis"></app-liste-fiche>

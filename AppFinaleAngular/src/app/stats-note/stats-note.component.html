@@ -1,0 +1,8 @@
+<div class="flex">
+    <h2>Stats for nerds:</h2><br>
+    
+    <h4>Nombre de notes par jeu</h4>
+    <mat-chip-list aria-label="Fish selection" >
+        <mat-chip *ngFor="let cossin of tabNote">{{cossin._id}}, {{cossin.nbNote}}</mat-chip>
+     </mat-chip-list>
+    </div>

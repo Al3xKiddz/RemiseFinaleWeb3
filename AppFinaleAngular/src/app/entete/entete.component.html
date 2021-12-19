@@ -1,0 +1,35 @@
+<mat-toolbar>
+    <mat-drawer-container class="example-container" autosize>
+        <mat-drawer class="example-sidenav" #drawer mode="side">
+            <p>
+                dedans du drawer
+            </p>
+        </mat-drawer>
+        <mat-drawer-content>
+        <button mat-icon-button type="button" class="example-icon" aria-label="Example icon-button with menu icon" mat-button (click)="drawer.toggle()">
+            <mat-icon>menu</mat-icon>
+          </button>
+          <span>WikiNotes</span>
+          
+    
+    <span class="example-spacer"></span>
+    <button mat-icon-button class="example-icon favorite-icon example-spacer" aria-label="Example icon-button with heart icon" routerLink="/formAuth">
+      <mat-icon>account_circle</mat-icon>
+    </button>
+    <!-- <button mat-icon-button class="example-icon example-spacer" aria-label="Example icon-button with share icon">
+      <mat-icon>list</mat-icon>
+    </button> -->
+    <button mat-icon-button class="example-icon example-spacer" aria-label="Example icon-button with share icon" routerLink="/accComp">
+        <mat-icon>view_module</mat-icon>
+      </button>
+      <button mat-input class="example-icon example-spacer" aria-label="Example icon-button with share icon" routerLink="/statsNote">
+        Stat Notes
+      </button>
+      <button mat-input class="example-icon example-spacer" aria-label="Example icon-button with share icon" routerLink="/statsVie">
+        Stat Vie
+      </button>
+      <button mat-icon-button class="example-icon example-spacer" aria-label="Example icon-button with share icon" routerLink="/formAjout">
+        <mat-icon>note_add</mat-icon></button>
+    </mat-drawer-content>
+    </mat-drawer-container>
+  </mat-toolbar>

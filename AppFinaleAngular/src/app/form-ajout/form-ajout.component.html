@@ -1,0 +1,114 @@
+<div class="flex">
+    <form #form="ngForm"  (ngSubmit) = "onClickSubmit(form)">
+        <mat-form-field appearance="fill">
+            <mat-label>Nom</mat-label>
+            <input required matInput placeholder="Ex. Vordt destroye of worlds" [(ngModel)]="wiki.nom" name="nom" #nom="ngModel" minlength="3" maxlength="100">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Photo</mat-label>
+          <input required matInput type="url" [(ngModel)]="wiki.lienPhoto"  name="lienPhoto" #lienPhoto="ngModel" minlength="3" maxlength="255">
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="fill">
+          <mat-label>Jeu d'origine</mat-label>
+          <input required matInput placeholder="Ex. Adibou" [(ngModel)]="wiki.jeuOrigine"  name="jeuOrigine" #jeuOrigine="ngModel" minlength="3" maxlength="100">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Nombre de points de vie</mat-label>
+          <input required matInput type="number" min="1" placeholder="PV du boss" [(ngModel)]="wiki.vie" name="vie" #vie="ngModel">
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="fill" class="textarea">
+          <mat-label>Lore</mat-label>
+          <textarea style="height: 150px ;width: 1000px;" matInput [(ngModel)]="wiki.lore" name="lore" #lore="ngModel"></textarea>
+        </mat-form-field>
+        <section>
+        <mat-checkbox matInput [(ngModel)]="wiki.battu" name="battu" #battu="ngModel">:Battu</mat-checkbox>
+        </section>
+        
+        <mat-form-field appearance="fill">
+          <mat-label>Faiblesses</mat-label>
+          <input type="text" matInput name="faib" #faib="ngModel"[(ngModel)]="nouvfaib">
+        </mat-form-field>
+        <button type="button" mat-raised-button color="primary"  (click)="addFaiblesse()">Ajouter Faiblesse</button>
+        <br>
+        <mat-form-field appearance="fill">
+          <mat-label>Forces</mat-label>
+          <input matInput type="text" name="force" #force="ngModel" [(ngModel)]="nouvforce">
+        </mat-form-field>
+        <button mat-raised-button type="button" color="primary" (click)="addForce()">Ajouter Force</button>
+        <br>
+        <mat-label>Chances d'avoir du butin</mat-label> <br>
+        <mat-form-field appearance="fill">
+          <mat-label>Nom du butin</mat-label>
+          <input matInput type="text" min="1" placeholder="Gun cool" name="nouvButin" [(ngModel)]="nouvButin">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Chances de l'avoir</mat-label>
+          <input matInput type="number" min="0" max="1" name="nouvChance" [(ngModel)]="nouvChance" #chance="ngModel">
+        </mat-form-field>
+        <br>
+        <button type="button" mat-raised-button color="primary" (click)="addLoot()">Ajouter Butin</button>
+        <br>
+        <br>
+        <div *ngIf="nom.invalid && (nom.dirty || nom.touched)">
+          <div class="alert">
+          <div *ngIf="nom.errors?.['required']">
+              nom est requis.
+            </div>
+            <div *ngIf="nom.errors?.['minlength']">
+              le nom doit etre minimum 5 caractere de long
+            </div>
+            <div *ngIf="nom.errors?.['maxlength']">
+              le nom doit etre maximum 100 caractere de long
+            </div>
+            </div>
+      </div>
+      <div *ngIf="jeuOrigine.invalid && (jeuOrigine.dirty || jeuOrigine.touched)">
+        <div class="alert">
+        <div *ngIf="jeuOrigine.errors?.['required']">
+            jeuOrigine est requis.
+          </div>
+          <div *ngIf="jeuOrigine.errors?.['minlength']">
+            le jeuOrigine doit etre minimum 5 caractere de long
+          </div>
+          <div *ngIf="jeuOrigine.errors?.['maxlength']">
+            le jeuOrigine doit etre maximum 100 caractere de long
+          </div>
+          </div>
+      </div>
+      
+
+      <div *ngIf="lienPhoto.invalid && (lienPhoto.dirty || lienPhoto.touched)">
+        <div class="alert">
+          <div *ngIf="lienPhoto.errors?.['minlength']">
+            Le lien de la photo doit etre minimum 3 caractere de long
+          </div>
+          <div *ngIf="lienPhoto.errors?.['maxlength']">
+            Le lien de la photo doit etre maximum 255 caractere de long
+          </div>
+          </div>
+      </div>
+      <div *ngIf="vie.invalid && (vie.dirty || vie.touched)">
+        <div class="alert">
+        <div *ngIf="vie.errors?.['required']">
+              Le champs vie est requis.
+          </div>
+          <div *ngIf="vie.errors?.['minlength']">
+            La vie doit etre au moins 1
+          </div>
+          </div>
+      </div>
+      <div *ngIf="chance.invalid && (chance.dirty || chance.touched)">
+        <div class="alert">
+          <div *ngIf="chance.errors?.['minlength']">
+            La chance doit etre entre 0 et 1
+          </div>
+          <div *ngIf="chance.errors?.['maxlength']">
+            La chance doit etre entre 0 et 1
+          </div>
+          </div>
+      </div>
+        <button mat-raised-button color="primary" type="submit">Ajouter Note</button>
+    </form>
+</div>

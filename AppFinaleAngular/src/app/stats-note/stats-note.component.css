@@ -1,0 +1,14 @@
+.flex{
+    display: flex;
+    justify-content: center;
+    flex-flow: wrap;
+    margin-bottom: 1%;
+    height: auto;width: auto;display: inline-block; flex-wrap: wrap;
+}
+
+.example-card {
+    width: 200px;
+    height: fit-content;
+  }
+
+  :host {background-color: grey;display: block;padding: 10px;}

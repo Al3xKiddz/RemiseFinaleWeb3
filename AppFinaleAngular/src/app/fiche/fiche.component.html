@@ -1,0 +1,29 @@
+
+    <mat-card class="example-card">
+        <mat-card-header>
+            <mat-card-title>{{wiki.nom}}</mat-card-title>
+            <mat-card-subtitle>{{wiki.jeuOrigine}}</mat-card-subtitle>
+          </mat-card-header>
+          <img mat-card-image src={{wiki.lienPhoto}} alt="Photo du boss">
+          <mat-card-content>
+              <mat-label *ngIf="wiki.battu">Deja Battu {{wiki.nomEtJeu}}</mat-label>
+              <mat-label *ngIf="!wiki.battu">Jamais Battu {{wiki.nomEtJeu}}</mat-label>
+            <p>
+              {{wiki.lore}}
+            </p>
+            <mat-label>Faiblesses</mat-label>
+            <mat-chip-list aria-label="Fish selection" >
+                <mat-chip color="accent" selected *ngFor="let cossin of wiki.faiblesses">{{cossin}}</mat-chip>
+              </mat-chip-list>
+              <mat-label>Forces</mat-label>
+            <mat-chip-list aria-label="Fish selection" >
+               <mat-chip color="primary" selected *ngFor="let cossin of wiki.forces">{{cossin}}</mat-chip>
+            </mat-chip-list>
+            <mat-label>Butin et chances de l'avoir Total:{{wiki.chancesToutButin}}</mat-label>
+            <mat-chip-list aria-label="Fish selection" >
+                <mat-chip *ngFor="let cossin of wiki.butinChances">{{cossin.nom}}, {{cossin.chances}}</mat-chip>
+             </mat-chip-list>
+             <button mat-raised-button color="primary" (click)="updateWiki()">Modifier</button>
+             <button mat-raised-button color="primary" (click)="deleteWiki()">Supprimer</button>
+          </mat-card-content>
+    </mat-card>

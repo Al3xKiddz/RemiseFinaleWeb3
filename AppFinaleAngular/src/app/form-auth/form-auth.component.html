@@ -1,0 +1,27 @@
+<div class="flex">
+    <form #form="ngForm"  (ngSubmit) = "onClickSubmit(form.value)">
+        <mat-form-field appearance="fill">
+            <mat-label>Adresse email</mat-label>
+            <input required matInput type="email" [(ngModel)]="email" name="mail" #mail="ngModel" minlength="3" maxlength="100">
+        </mat-form-field>
+          <div *ngIf="mail.invalid && (mail.dirty || mail.touched)">
+            <div class="alert">
+            <div *ngIf="mail.errors?.['required']">
+                mail est requis.
+              </div>
+              <div *ngIf="mail.errors?.['minlength']">
+                le mail doit etre minimum 5 caractere de long
+              </div>
+              <div *ngIf="mail.errors?.['maxlength']">
+                le mail doit etre maximum 100 caractere de long
+              </div>
+              </div>
+        </div>
+        <mat-form-field appearance="fill">
+          <mat-label>Mot de passe</mat-label>
+          <input required matInput type="password" [(ngModel)]="passw"  name="password" #password="ngModel" >
+        </mat-form-field>
+        <br>
+        <button mat-raised-button color="primary" type="submit">Se connecter</button>
+    </form>
+</div>
